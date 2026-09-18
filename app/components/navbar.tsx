@@ -11,11 +11,13 @@ export default function Navbar() {
     { name: 'Phones', href: '/phones' },
     { name: 'Accessories', href: '/accessories' },
     { name: 'Contact', href: '/contact' },
+        { name: 'About', href: '/about' },
+
   ];
 
   return (
-    <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100 shadow-sm w-full overflow-x-hidden">
+      <div className="w-full px-4 sm:px-8 lg:px-16 h-16 flex items-center justify-between gap-4">
         
         {/* Brand Logo */}
         <Link href="/" className="text-xl font-black tracking-tight flex items-center gap-2">

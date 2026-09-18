@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { MapPin, PhoneCall, Mail, CheckCircle2, MessageCircle, Smartphone } from 'lucide-react';
+import Footer from '../components/footer';
+
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -12,143 +15,146 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-800 font-sans flex flex-col justify-between">
-      
+    <div className="bg-white min-h-screen text-[#14171C] font-sans flex flex-col justify-between">
+
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 w-full">
-        
+      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20 space-y-12 w-full">
+
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100">
-            Get In Touch
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black text-slate-900">Contact Our Support</h1>
-          <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
-            Have a question about a smartphone, warranty, or order status? We are here to help you 24/7.
+        <div className="max-w-2xl space-y-3">
+          <p className="text-xs font-semibold text-[#3E7BFA]">Get in touch</p>
+          <h1 className="text-3xl sm:text-5xl font-semibold text-[#0F1216] tracking-[-0.01em]">
+            Contact our support
+          </h1>
+          <p className="text-[#5B6472] text-sm sm:text-base leading-relaxed">
+            Have a question about a smartphone, a warranty claim, or an order status? We're available around the clock to help.
           </p>
         </div>
 
         {/* Contact Info Cards & Form Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+
           {/* Info Column */}
-          <div className="space-y-4">
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                📍
+          <div className="space-y-5">
+            <div className="divide-y divide-[#E7E9EE] border-y border-[#E7E9EE] lg:border-y-0 lg:divide-y-0 lg:space-y-0">
+              <div className="flex items-center gap-4 py-5 lg:py-0 lg:pb-5">
+                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
+                  <MapPin className="w-4.5 h-4.5" />
+                </span>
+                <div>
+                  <h4 className="font-semibold text-[#0F1216] text-sm">Store location</h4>
+                  <p className="text-xs text-[#5B6472] mt-0.5">Main Tech Commercial Hub, Shop #12</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-extrabold text-slate-900 text-sm">Store Location</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Main Tech Commercial Hub, Shop #12</p>
+
+              <div className="flex items-center gap-4 py-5">
+                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
+                  <PhoneCall className="w-4.5 h-4.5" />
+                </span>
+                <div>
+                  <h4 className="font-semibold text-[#0F1216] text-sm">Phone support</h4>
+                  <p className="text-xs text-[#5B6472] mt-0.5">+92 300 1234567 (Mon – Sat)</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 py-5 lg:pt-5 lg:pb-0">
+                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
+                  <Mail className="w-4.5 h-4.5" />
+                </span>
+                <div>
+                  <h4 className="font-semibold text-[#0F1216] text-sm">Email address</h4>
+                  <p className="text-xs text-[#5B6472] mt-0.5">support@mobixstore.com</p>
+                </div>
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
-              <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                📞
-              </div>
-              <div>
-                <h4 className="font-extrabold text-slate-900 text-sm">Phone Support</h4>
-                <p className="text-xs text-slate-500 mt-0.5">+92 300 1234567 (Mon - Sat)</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm flex items-center gap-4">
-              <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                ✉️
-              </div>
-              <div>
-                <h4 className="font-extrabold text-slate-900 text-sm">Email Address</h4>
-                <p className="text-xs text-slate-500 mt-0.5">support@mobixstore.com</p>
-              </div>
-            </div>
-
-            <div className="bg-linear-to-br from-blue-600 to-indigo-600 text-white p-6 rounded-3xl shadow-lg space-y-2">
-              <h4 className="font-extrabold text-base">Instant Order Help?</h4>
-              <p className="text-xs text-blue-100 leading-relaxed">
-                Need quick details about delivery or official brand warranty? Chat directly with our technical team.
+            <div className="bg-[#0F1216] text-white p-6 rounded-2xl space-y-2">
+              <MessageCircle className="w-5 h-5 text-[#3E7BFA]" />
+              <h4 className="font-semibold text-sm pt-1">Need order help fast?</h4>
+              <p className="text-xs text-[#9BA3AF] leading-relaxed">
+                Ask about delivery timing or brand warranty coverage and our team will get back to you directly.
               </p>
             </div>
           </div>
 
           {/* Form Column */}
-          <div className="lg:col-span-2 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/80 shadow-sm">
+          <div className="lg:col-span-2 bg-[#FAFBFC] p-8 sm:p-10 rounded-2xl border border-[#E7E9EE]">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <span className="text-6xl block">✅</span>
-                <h3 className="text-2xl font-black text-slate-900">Message Sent Successfully!</h3>
-                <p className="text-slate-500 text-xs sm:text-sm max-w-md mx-auto">
-                  Thank you for reaching out. Our support representative will respond to your query within 2-4 business hours.
+                <CheckCircle2 className="w-14 h-14 text-[#3E7BFA] mx-auto" />
+                <h3 className="text-2xl font-semibold text-[#0F1216]">Message sent successfully</h3>
+                <p className="text-[#5B6472] text-xs sm:text-sm max-w-md mx-auto">
+                  Thank you for reaching out. Our support team will respond to your query within 2–4 business hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="bg-blue-600 text-white font-bold text-xs px-6 py-3 rounded-xl hover:bg-blue-700 transition"
+                  className="bg-[#3E7BFA] hover:bg-[#2F68E6] text-white font-semibold text-xs px-6 py-3 rounded-xl transition-colors"
                 >
-                  Send Another Message
+                  Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <h3 className="text-xl font-extrabold text-slate-900">Send Us a Message</h3>
+                <h3 className="text-xl font-semibold text-[#0F1216]">Send us a message</h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">Full Name</label>
+                    <label className="text-xs font-semibold text-[#14171C]">Full name</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Ali Raza"
-                      className="w-full bg-slate-50 text-xs sm:text-sm text-slate-800 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 focus:bg-white transition"
+                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">Email Address</label>
+                    <label className="text-xs font-semibold text-[#14171C]">Email address</label>
                     <input
                       type="email"
                       required
                       placeholder="e.g. ali@example.com"
-                      className="w-full bg-slate-50 text-xs sm:text-sm text-slate-800 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 focus:bg-white transition"
+                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">Phone Number (Optional)</label>
+                    <label className="text-xs font-semibold text-[#14171C]">Phone number (optional)</label>
                     <input
                       type="tel"
                       placeholder="+92 300 0000000"
-                      className="w-full bg-slate-50 text-xs sm:text-sm text-slate-800 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 focus:bg-white transition"
+                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">Subject</label>
-                    <select className="w-full bg-slate-50 text-xs sm:text-sm text-slate-800 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 focus:bg-white transition">
-                      <option>General Inquiry</option>
-                      <option>Order Status</option>
-                      <option>Warranty &amp; Returns</option>
-                      <option>Product Stock Availability</option>
+                    <label className="text-xs font-semibold text-[#14171C]">Subject</label>
+                    <select className="w-full bg-white text-xs sm:text-sm text-[#14171C] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition">
+                      <option>General inquiry</option>
+                      <option>Order status</option>
+                      <option>Warranty &amp; returns</option>
+                      <option>Product stock availability</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-700">Your Message</label>
+                  <label className="text-xs font-semibold text-[#14171C]">Your message</label>
                   <textarea
                     rows={4}
                     required
                     placeholder="Type your query here..."
-                    className="w-full bg-slate-50 text-xs sm:text-sm text-slate-800 px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-500 focus:bg-white transition"
+                    className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition shadow-md shadow-blue-500/20"
+                  className="w-full sm:w-auto bg-[#3E7BFA] hover:bg-[#2F68E6] text-white font-semibold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-colors"
                 >
-                  Submit Message
+                  Submit message
                 </button>
               </form>
             )}
@@ -158,54 +164,8 @@ export default function ContactPage() {
 
       </div>
 
-      {/* Footer */}
-      <footer className="bg-white text-slate-600 pt-12 pb-8 border-t border-slate-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-          
-          <div className="space-y-3">
-            <h3 className="text-slate-900 text-lg font-black flex items-center gap-2">
-              <span>📱</span> MOBIX<span className="text-blue-600">STORE</span>
-            </h3>
-            <p className="text-xs leading-relaxed text-slate-500">
-              Your authentic store for original smartphones, fast chargers, covers, and mobile accessories.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider mb-3">Links</h4>
-            <ul className="space-y-2 text-xs">
-              <li><Link href="/" className="hover:text-blue-600 transition">Home</Link></li>
-              <li><Link href="/phones" className="hover:text-blue-600 transition">Smartphones</Link></li>
-              <li><Link href="/accessories" className="hover:text-blue-600 transition">Accessories</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-600 transition">Contact Us</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider mb-3">Customer Service</h4>
-            <ul className="space-y-2 text-xs">
-              <li className="hover:text-blue-600 cursor-pointer">Order Tracking</li>
-              <li className="hover:text-blue-600 cursor-pointer">Warranty Policy</li>
-              <li className="hover:text-blue-600 cursor-pointer">Shipping Rates</li>
-              <li className="hover:text-blue-600 cursor-pointer">Returns &amp; Exchange</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider mb-3">Contact</h4>
-            <ul className="space-y-2 text-xs text-slate-500">
-              <li>📍 Main Tech Market, Shop #12</li>
-              <li>📞 +92 300 1234567</li>
-              <li>✉️ support@mobixstore.com</li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
-          © 2026 MOBIXSTORE. All rights reserved.
-        </div>
-      </footer>
+           <Footer />
+     
 
     </div>
   );
