@@ -32,7 +32,7 @@ export default function AccessoriesPage() {
       price: '£49.99',
       oldPrice: '£69.99',
       rating: '4.8',
-      image: 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800',
       badge: 'Bestseller',
       description: 'Active Noise Cancellation with 30-hour battery life and crisp bass.',
     },
@@ -240,9 +240,9 @@ export default function AccessoriesPage() {
                       src={item.image}
                       alt={item.name}
                       onError={(e) => {
-                        // Fallback image if any link breaks
+                        // Fallback working image link
                         (e.target as HTMLImageElement).src =
-                          'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800';
+                          'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800';
                       }}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
                       loading="lazy"

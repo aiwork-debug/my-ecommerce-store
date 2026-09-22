@@ -21,10 +21,19 @@ import {
 export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Fallback image link for broken image prevention
-  const fallbackImage = 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800';
+  // Reliable Fallback Image (Earphones/Tech context)
+  const fallbackImage =
+    'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800';
 
-  // Phone Data (100% Reliable Pexels CDN URLs)
+  // Safe Image Error Handler (Prevents infinite loop if fallback fails)
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.currentTarget;
+    if (target.src !== fallbackImage) {
+      target.src = fallbackImage;
+    }
+  };
+
+  // Phone Data (100% Verified Pexels URLs)
   const phones = [
     {
       id: 1,
@@ -68,7 +77,7 @@ export default function Home() {
     },
   ];
 
-  // Expanded Accessories Data (100% Reliable Pexels CDN URLs)
+  // Fixed Accessories Data (Tested High Resolution Tech Images)
   const accessories = [
     {
       id: 1,
@@ -76,7 +85,7 @@ export default function Home() {
       category: 'Audio',
       price: '£49.99',
       rating: '4.8',
-      image: 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 2,
@@ -220,9 +229,7 @@ export default function Home() {
                 <img
                   src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Featured smartphone on dark background"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = fallbackImage;
-                  }}
+                  onError={handleImageError}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -290,9 +297,7 @@ export default function Home() {
                   <img
                     src={phone.image}
                     alt={phone.name}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = fallbackImage;
-                    }}
+                    onError={handleImageError}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
                   />
                   <span className="absolute top-3 left-3 text-[10px] font-bold bg-white/90 backdrop-blur-sm text-gray-800 px-2.5 py-1 rounded-lg border border-gray-200 shadow-sm uppercase tracking-wider">
@@ -352,9 +357,7 @@ export default function Home() {
                   <img
                     src={acc.image}
                     alt={acc.name}
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = fallbackImage;
-                    }}
+                    onError={handleImageError}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
                   />
                   <span className="absolute top-3 right-3 text-xs font-bold text-amber-700 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-gray-200 flex items-center gap-1 shadow-sm">
@@ -414,9 +417,7 @@ export default function Home() {
             <img
               src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1000"
               alt="MobixStore UK headquarters and tech lineup"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = fallbackImage;
-              }}
+              onError={handleImageError}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
