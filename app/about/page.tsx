@@ -1,215 +1,200 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '../components/footer';
 import {
   ShieldCheck,
-  Target,
+  Award,
   Users,
   Truck,
-  Award,
-  Heart,
-  ArrowUpRight,
+  CheckCircle2,
+  MapPin,
+  Clock,
+  ArrowRight,
 } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 w-full overflow-x-hidden font-sans">
+    <div className="bg-slate-50 min-h-screen font-sans selection:bg-[#3E7BFA] selection:text-white">
+      {/* Top Banner */}
+      <div className="w-full bg-slate-900 text-slate-200 text-center py-2.5 px-4 text-[11px] font-medium tracking-wide">
+        🇬🇧 London HQ — Serving Customers Across England, Scotland, Wales &amp; Northern Ireland
+      </div>
 
-      {/* 1. HERO PAGE HEADER */}
-      <section className="w-full bg-slate-50 border-b border-slate-200 py-16 px-4 sm:px-8 lg:px-16">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
-            <span className="text-[11px] font-black uppercase tracking-widest text-blue-600 bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100">
-              Our Story
+      {/* Hero Header */}
+      <section className="relative bg-white border-b border-slate-200 py-16 sm:py-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#3E7BFA] bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">
+            Our UK Journey &amp; Mission
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+            Redefining Mobile Retail in <br />
+            <span className="bg-gradient-to-r from-[#3E7BFA] to-indigo-600 bg-clip-text text-transparent">
+              London &amp; Across the UK
             </span>
-            <h1 className="text-4xl sm:text-5xl font-black text-slate-900 tracking-tight">
-              About <span className="text-blue-600 italic">MobixStore</span>
-            </h1>
-            <p className="text-slate-600 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
-              We started MobixStore because buying a phone shouldn't feel like a gamble. Every device we sell is sealed, verified, and backed by people who actually use this stuff.
-            </p>
-          </div>
-
-          <div className="relative h-72 sm:h-80 rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-            <Image
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=900&auto=format&fit=crop"
-              alt="MobixStore team inspecting smartphones"
-              fill
-              className="object-cover"
-            />
-          </div>
+          </h1>
+          <p className="max-w-2xl mx-auto text-slate-600 text-base sm:text-lg leading-relaxed font-normal">
+            At MobixStore UK, we supply authentic factory-sealed hardware, transparent GBP pricing, and 100% genuine UK-spec mobile phones with full brand warranties.
+          </p>
         </div>
       </section>
 
-      {/* 2. STATS STRIP */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-10 border-b border-slate-100">
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-y divide-slate-100 lg:divide-y-0 lg:divide-x">
+      {/* High-Resolution Gallery & Story */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6">
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Built on Quality, Backed by UK Expertise
+            </h2>
+            <p className="text-slate-600 leading-relaxed font-normal">
+              Founded in Central London, MobixStore UK started with a single focus: giving tech enthusiasts across Great Britain direct access to genuine smartphones and certified tech accessories without retail markups.
+            </p>
+            <p className="text-slate-600 leading-relaxed font-normal">
+              Whether you are upgrading to the latest flagship iPhone in Manchester, sourcing high-power GaN chargers in Edinburgh, or picking up MagSafe gear in Cardiff, every single order ships directly from our London logistics hub with full tracking.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/phones"
+                className="inline-flex items-center gap-2 bg-[#3E7BFA] hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all duration-200 shadow-md shadow-blue-500/20"
+              >
+                <span>Explore Mobile Devices</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative h-96 w-full rounded-3xl overflow-hidden border border-slate-200 shadow-xl group">
+            <Image
+              src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?q=80&w=1000&auto=format&fit=crop"
+              alt="MobixStore London showroom and hub"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <p className="text-xs font-bold uppercase tracking-widest text-blue-300">London Head Office &amp; Showroom</p>
+              <h3 className="text-xl font-black">45 Oxford Street, Fitzrovia, London</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { value: '2019', label: 'Founded in Rawalpindi' },
-            { value: '12,400+', label: 'Units shipped' },
-            { value: '4.8/5', label: 'Average rating' },
-            { value: '24 mo', label: 'Warranty support' },
-          ].map((stat, idx) => (
-            <div key={idx} className="py-5 lg:py-2 lg:px-6 first:lg:pl-0">
-              <span className="block text-2xl font-black text-slate-900">{stat.value}</span>
-              <p className="text-xs text-slate-500 mt-1">{stat.label}</p>
+            {
+              icon: <ShieldCheck className="w-6 h-6 text-[#3E7BFA]" />,
+              title: "100% Genuine Stock",
+              desc: "Verified factory sealed UK units with official IMEI check.",
+            },
+            {
+              icon: <Award className="w-6 h-6 text-[#3E7BFA]" />,
+              title: "24-Month UK Warranty",
+              desc: "Comprehensive brand warranty & local UK customer support.",
+            },
+            {
+              icon: <Users className="w-6 h-6 text-[#3E7BFA]" />,
+              title: "25,000+ UK Customers",
+              desc: "Rated 4.9/5 on Trustpilot by buyers across the UK.",
+            },
+            {
+              icon: <Truck className="w-6 h-6 text-[#3E7BFA]" />,
+              title: "Next-Day UK Express",
+              desc: "Fast tracked dispatch via DPD and Royal Mail.",
+            },
+          ].map((item, index) => (
+            <div
+              key={index}
+              className="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 space-y-3"
+            >
+              <div className="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center">
+                {item.icon}
+              </div>
+              <h4 className="text-lg font-bold text-slate-900">{item.title}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 3. OUR STORY */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 py-16 space-y-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          <div className="lg:col-span-1 space-y-3">
-            <p className="text-xs font-black text-blue-600 uppercase tracking-widest">How we started</p>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              Built by people tired of guessing games
-            </h2>
-          </div>
-          <div className="lg:col-span-2 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-            <p>
-              MobixStore began as a small counter in a Rawalpindi tech market, selling sealed phones to friends who kept getting burned by grey-market imports and fake IMEI numbers. Word spread fast, and the counter grew into a full storefront and an online catalog.
-            </p>
-            <p>
-              Today we ship original, factory-sealed smartphones and accessories across Pakistan, but the promise hasn't changed: every unit is verified before it leaves our hands, every warranty claim is handled directly, and every question gets a straight answer.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. WHAT WE STAND FOR */}
-      <section className="w-full bg-slate-50 border-y border-slate-200 px-4 sm:px-8 lg:px-16 py-16 space-y-10">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <p className="text-xs font-black text-blue-600 uppercase tracking-widest">Our Promise</p>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            What We Stand <span className="text-blue-600 italic">For</span>
-          </h2>
-          <p className="text-slate-600 text-sm">The same four principles guide every order, big or small.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <h3 className="font-extrabold text-slate-900 text-base">Verified Authenticity</h3>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Every IMEI is checked before dispatch — no grey imports, no reboxed returns.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-              <Target className="w-6 h-6" />
-            </div>
-            <h3 className="font-extrabold text-slate-900 text-base">Honest Pricing</h3>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              What you see at checkout is what you pay — no hidden fees, no bait pricing.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-              <Truck className="w-6 h-6" />
-            </div>
-            <h3 className="font-extrabold text-slate-900 text-base">Fast, Careful Shipping</h3>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Dispatched within 24 hours, packed to survive the trip across the country.
-            </p>
-          </div>
-
-          <div className="bg-white border border-slate-200 p-8 rounded-2xl space-y-3">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
-              <Heart className="w-6 h-6" />
-            </div>
-            <h3 className="font-extrabold text-slate-900 text-base">Support That Answers</h3>
-            <p className="text-xs text-slate-600 leading-relaxed font-normal">
-              Real people handle warranty claims and questions — no bots, no runaround.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TEAM SPOTLIGHT BANNER */}
-      <section className="w-full bg-slate-900 text-white py-20 px-4 sm:px-8 lg:px-16 my-10 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[140px] rounded-full pointer-events-none" />
-
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-          <div className="space-y-6">
-            <span className="text-xs font-black uppercase tracking-widest text-blue-400 bg-blue-950/80 px-3.5 py-1.5 rounded-full border border-blue-800/60">
-              The Team
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-              A small team that still <span className="text-blue-500 italic">checks every box</span>
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base font-normal leading-relaxed">
-              We're still a small, hands-on team — the same people who verify your IMEI are the ones who answer your warranty calls. That's on purpose.
-            </p>
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="border border-slate-800 bg-slate-800/50 p-4 rounded-xl">
-                <Users className="w-5 h-5 text-blue-400 mb-2" />
-                <h4 className="font-bold text-sm text-white">Local, Hands-On</h4>
-                <p className="text-xs text-slate-400 mt-1">Based in Rawalpindi, serving all of Pakistan.</p>
-              </div>
-              <div className="border border-slate-800 bg-slate-800/50 p-4 rounded-xl">
-                <Award className="w-5 h-5 text-blue-400 mb-2" />
-                <h4 className="font-bold text-sm text-white">Certified Original</h4>
-                <p className="text-xs text-slate-400 mt-1">Sourced only from authorized distributors.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="relative h-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+      {/* London Fulfillment & Logistics Section */}
+      <section className="bg-white border-y border-slate-200 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="relative h-96 w-full rounded-3xl overflow-hidden border border-slate-200 shadow-xl order-2 md:order-1">
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
-              alt="MobixStore team at work"
+              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000&auto=format&fit=crop"
+              alt="UK Dispatch and Fulfillment Operations"
               fill
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
-              <div>
-                <span className="text-xs font-bold text-blue-400 bg-blue-950/80 px-2.5 py-1 rounded border border-blue-800/60">
-                  Since 2019
-                </span>
-                <h3 className="text-xl font-bold text-white mt-2">Rawalpindi &amp; Islamabad</h3>
-                <p className="text-xs text-slate-300 mt-0.5">Shop #12, Main Tech Commercial Hub</p>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 text-white">
+              <span className="text-xs font-bold uppercase tracking-widest text-blue-300">Central Logistics</span>
+              <h3 className="text-xl font-black">Fast UK Fulfillment Network</h3>
             </div>
           </div>
+
+          <div className="space-y-6 order-1 md:order-2">
+            <span className="text-xs font-black text-[#3E7BFA] uppercase tracking-widest">
+              UK Standards &amp; Operations
+            </span>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              Delivering Excellence Across the United Kingdom
+            </h2>
+            <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Operating out of our central London hub, our logistics team inspects and prepares every product under strict UK standards. We work closely with leading couriers to make sure your package arrives safely and on time.
+            </p>
+
+            <ul className="space-y-3 pt-2 text-sm text-slate-700 font-medium">
+              <li className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#3E7BFA] shrink-0" />
+                <span>Fully VAT Registered UK Business (HM Revenue &amp; Customs compliant)</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#3E7BFA] shrink-0" />
+                <span>Next-working-day express options available at checkout</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#3E7BFA] shrink-0" />
+                <span>Hassle-free 30-day UK return policy &amp; dedicated support</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      {/* 6. CTA */}
-      <section className="w-full px-4 sm:px-8 lg:px-16 py-16">
-        <div className="max-w-4xl mx-auto text-center space-y-5">
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Ready to find your next phone?
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
-            Browse our full catalog of sealed, verified smartphones and accessories.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center pt-1">
+      {/* UK Head Office Location Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-4 max-w-xl z-10">
+            <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Visit Our London Hub</span>
+            <h3 className="text-2xl sm:text-4xl font-black tracking-tight">Need in-person advice or technical help?</h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              Our Fitzrovia store is open Monday to Saturday for device demos, accessory pairings, and support.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-300">
+              <span className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-[#3E7BFA]" /> 45 Oxford St, London W1D 2DZ
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-[#3E7BFA]" /> Mon - Sat: 9:00 AM - 6:00 PM
+              </span>
+            </div>
+          </div>
+
+          <div className="z-10 w-full sm:w-auto">
             <Link
-              href="/phones"
-              className="inline-flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-7 py-3.5 rounded-xl transition shadow-sm shadow-blue-500/20"
+              href="/#contact-section"
+              className="inline-block text-center w-full sm:w-auto bg-[#3E7BFA] hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg"
             >
-              Shop phones
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-1.5 border border-slate-200 hover:border-blue-500 text-slate-700 font-bold text-sm px-7 py-3.5 rounded-xl transition"
-            >
-              Contact us
+              Contact UK Team
             </Link>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* Footer */}
       <Footer />
-
     </div>
   );
 }

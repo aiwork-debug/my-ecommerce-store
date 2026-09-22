@@ -2,9 +2,18 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { MapPin, PhoneCall, Mail, CheckCircle2, MessageCircle, Smartphone } from 'lucide-react';
 import Footer from '../components/footer';
-
+import {
+  MapPin,
+  PhoneCall,
+  Mail,
+  CheckCircle2,
+  Clock,
+  Send,
+  MessageSquare,
+  ShieldCheck,
+  Building2,
+} from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -15,158 +24,199 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white min-h-screen text-[#14171C] font-sans flex flex-col justify-between">
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-16 lg:py-20 space-y-12 w-full">
-
-        {/* Header */}
-        <div className="max-w-2xl space-y-3">
-          <p className="text-xs font-semibold text-[#3E7BFA]">Get in touch</p>
-          <h1 className="text-3xl sm:text-5xl font-semibold text-[#0F1216] tracking-[-0.01em]">
-            Contact our support
-          </h1>
-          <p className="text-[#5B6472] text-sm sm:text-base leading-relaxed">
-            Have a question about a smartphone, a warranty claim, or an order status? We're available around the clock to help.
-          </p>
+    <div className="bg-slate-50 min-h-screen font-sans selection:bg-[#3E7BFA] selection:text-white flex flex-col justify-between">
+      <div>
+        {/* Top Announcement Bar */}
+        <div className="w-full bg-slate-900 text-slate-200 text-center py-2.5 px-4 text-[11px] font-medium tracking-wide">
+          🇬🇧 London Customer Support — Fast response within 2 business hours across the UK
         </div>
 
-        {/* Contact Info Cards & Form Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-
-          {/* Info Column */}
-          <div className="space-y-5">
-            <div className="divide-y divide-[#E7E9EE] border-y border-[#E7E9EE] lg:border-y-0 lg:divide-y-0 lg:space-y-0">
-              <div className="flex items-center gap-4 py-5 lg:py-0 lg:pb-5">
-                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
-                  <MapPin className="w-4.5 h-4.5" />
-                </span>
-                <div>
-                  <h4 className="font-semibold text-[#0F1216] text-sm">Store location</h4>
-                  <p className="text-xs text-[#5B6472] mt-0.5">Main Tech Commercial Hub, Shop #12</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 py-5">
-                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
-                  <PhoneCall className="w-4.5 h-4.5" />
-                </span>
-                <div>
-                  <h4 className="font-semibold text-[#0F1216] text-sm">Phone support</h4>
-                  <p className="text-xs text-[#5B6472] mt-0.5">+92 300 1234567 (Mon – Sat)</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 py-5 lg:pt-5 lg:pb-0">
-                <span className="p-3 bg-[#F5F6F8] border border-[#E1E4EA] text-[#3E7BFA] rounded-xl">
-                  <Mail className="w-4.5 h-4.5" />
-                </span>
-                <div>
-                  <h4 className="font-semibold text-[#0F1216] text-sm">Email address</h4>
-                  <p className="text-xs text-[#5B6472] mt-0.5">support@mobixstore.com</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-[#0F1216] text-white p-6 rounded-2xl space-y-2">
-              <MessageCircle className="w-5 h-5 text-[#3E7BFA]" />
-              <h4 className="font-semibold text-sm pt-1">Need order help fast?</h4>
-              <p className="text-xs text-[#9BA3AF] leading-relaxed">
-                Ask about delivery timing or brand warranty coverage and our team will get back to you directly.
-              </p>
-            </div>
+        {/* Hero Header */}
+        <section className="bg-white border-b border-slate-200 py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#3E7BFA] bg-blue-50 border border-blue-100 px-3.5 py-1.5 rounded-full">
+              UK Help &amp; Support
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+              Get in Touch with <span className="text-[#3E7BFA]">MobixStore UK</span>
+            </h1>
+            <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto font-normal">
+              Have questions about UK deliveries, order tracking, device compatibility, or 24-month warranties? Our London team is here to help!
+            </p>
           </div>
+        </section>
 
-          {/* Form Column */}
-          <div className="lg:col-span-2 bg-[#FAFBFC] p-8 sm:p-10 rounded-2xl border border-[#E7E9EE]">
-            {submitted ? (
-              <div className="text-center py-12 space-y-4">
-                <CheckCircle2 className="w-14 h-14 text-[#3E7BFA] mx-auto" />
-                <h3 className="text-2xl font-semibold text-[#0F1216]">Message sent successfully</h3>
-                <p className="text-[#5B6472] text-xs sm:text-sm max-w-md mx-auto">
-                  Thank you for reaching out. Our support team will respond to your query within 2–4 business hours.
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
-                  className="bg-[#3E7BFA] hover:bg-[#2F68E6] text-white font-semibold text-xs px-6 py-3 rounded-xl transition-colors"
-                >
-                  Send another message
-                </button>
+        {/* Main Content Grid */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            
+            {/* Contact Details Card */}
+            <div className="space-y-4 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-[#3E7BFA]" /> Contact Info
+              </h3>
+
+              {/* Location */}
+              <div className="flex items-start gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                <span className="p-3 bg-blue-50 text-[#3E7BFA] rounded-xl border border-blue-100 shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">London Showroom &amp; HQ</h4>
+                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
+                    45 Oxford Street, Fitzrovia,<br />London, W1D 2DZ, United Kingdom
+                  </p>
+                </div>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <h3 className="text-xl font-semibold text-[#0F1216]">Send us a message</h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-[#14171C]">Full name</label>
+              {/* Phone */}
+              <div className="flex items-start gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                <span className="p-3 bg-blue-50 text-[#3E7BFA] rounded-xl border border-blue-100 shrink-0">
+                  <PhoneCall className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">UK Customer Care</h4>
+                  <p className="text-xs text-slate-500 mt-1 font-semibold text-slate-800">+44 20 7946 0912</p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">Freephone within the UK</p>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                <span className="p-3 bg-blue-50 text-[#3E7BFA] rounded-xl border border-blue-100 shrink-0">
+                  <Mail className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">Email Enquiries</h4>
+                  <p className="text-xs text-slate-500 mt-1 font-medium">support@mobixstore.co.uk</p>
+                  <p className="text-[10px] text-slate-400 mt-0.5">Replies within 2 hours</p>
+                </div>
+              </div>
+
+              {/* Operating Hours */}
+              <div className="flex items-start gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                <span className="p-3 bg-blue-50 text-[#3E7BFA] rounded-xl border border-blue-100 shrink-0">
+                  <Clock className="w-5 h-5" />
+                </span>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">Business Hours (GMT/BST)</h4>
+                  <p className="text-xs text-slate-500 mt-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                  <p className="text-xs text-slate-500">Saturday: 10:00 AM - 4:00 PM</p>
+                </div>
+              </div>
+
+              {/* UK Trust Badge */}
+              <div className="mt-6 pt-6 border-t border-slate-100 flex items-center gap-3 bg-blue-50/50 p-4 rounded-2xl">
+                <ShieldCheck className="w-6 h-6 text-[#3E7BFA] shrink-0" />
+                <p className="text-xs text-slate-600 font-medium">
+                  Registered in England &amp; Wales. Fully VAT compliant.
+                </p>
+              </div>
+            </div>
+
+            {/* Interactive Form */}
+            <div className="lg:col-span-2 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
+              {submitted ? (
+                <div className="text-center py-16 space-y-4">
+                  <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-100">
+                    <CheckCircle2 className="w-10 h-10 animate-bounce" />
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900">Message Delivered!</h3>
+                  <p className="text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                    Thank you for reaching out. Our London support representative will get back to you via email within 2 business hours.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="inline-block mt-4 text-xs font-bold text-[#3E7BFA] hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <MessageSquare className="w-5 h-5 text-[#3E7BFA]" />
+                    <h3 className="text-xl font-black text-slate-900">Send Us a Direct Message</h3>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">Full Name</label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Oliver Smith"
+                        className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all placeholder:text-slate-400"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">Email Address</label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="oliver.smith@example.co.uk"
+                        className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all placeholder:text-slate-400"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">UK Phone (Optional)</label>
+                      <input
+                        type="tel"
+                        placeholder="07123 456789"
+                        className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all placeholder:text-slate-400"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-2">Inquiry Type</label>
+                      <select className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all">
+                        <option>General Support</option>
+                        <option>Order Tracking &amp; Delivery</option>
+                        <option>24-Month Warranty Claim</option>
+                        <option>Returns &amp; Refunds</option>
+                        <option>Bulk / Business Orders</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-2">Subject</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ali Raza"
-                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
+                      placeholder="e.g. Next-Day DPD Delivery Status Query"
+                      className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all placeholder:text-slate-400"
                     />
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-[#14171C]">Email address</label>
-                    <input
-                      type="email"
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-2">Message</label>
+                    <textarea
+                      rows={5}
                       required
-                      placeholder="e.g. ali@example.com"
-                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-[#14171C]">Phone number (optional)</label>
-                    <input
-                      type="tel"
-                      placeholder="+92 300 0000000"
-                      className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition"
+                      placeholder="Please include order number if applicable..."
+                      className="w-full bg-slate-50 border border-slate-200 px-4 py-3 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#3E7BFA] text-slate-900 transition-all resize-none placeholder:text-slate-400"
                     />
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-[#14171C]">Subject</label>
-                    <select className="w-full bg-white text-xs sm:text-sm text-[#14171C] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition">
-                      <option>General inquiry</option>
-                      <option>Order status</option>
-                      <option>Warranty &amp; returns</option>
-                      <option>Product stock availability</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-[#14171C]">Your message</label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Type your query here..."
-                    className="w-full bg-white text-xs sm:text-sm text-[#14171C] placeholder:text-[#9AA1AC] px-4 py-3 rounded-xl border border-[#E1E4EA] focus:outline-none focus:border-[#3E7BFA] transition resize-none"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto bg-[#3E7BFA] hover:bg-[#2F68E6] text-white font-semibold text-xs sm:text-sm px-8 py-3.5 rounded-xl transition-colors"
-                >
-                  Submit message
-                </button>
-              </form>
-            )}
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto bg-[#3E7BFA] hover:bg-blue-700 text-white font-bold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-md shadow-blue-500/20 flex items-center justify-center gap-2"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Send Message</span>
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
-
         </div>
-
       </div>
 
-           <Footer />
-     
-
+      {/* Footer Component */}
+      <Footer />
     </div>
   );
 }
