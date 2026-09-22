@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Footer from './components/footer';
 import {
   ShieldCheck,
@@ -17,13 +16,15 @@ import {
   CheckCircle2,
   Building2,
   Award,
-  Clock,
 } from 'lucide-react';
 
 export default function Home() {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Phone Data (Prices in GBP)
+  // Fallback image link for broken image prevention
+  const fallbackImage = 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800';
+
+  // Phone Data (100% Reliable Pexels CDN URLs)
   const phones = [
     {
       id: 1,
@@ -32,8 +33,7 @@ export default function Home() {
       price: '£1,199',
       oldPrice: '£1,299',
       rating: '4.9',
-      image:
-        'https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800',
       tag: 'Flagship',
     },
     {
@@ -43,8 +43,7 @@ export default function Home() {
       price: '£1,249',
       oldPrice: '£1,349',
       rating: '4.8',
-      image:
-        'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=800',
       tag: 'AI Powered',
     },
     {
@@ -54,8 +53,7 @@ export default function Home() {
       price: '£899',
       oldPrice: '£999',
       rating: '4.7',
-      image:
-        'https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800',
       tag: 'Best Camera',
     },
     {
@@ -65,13 +63,12 @@ export default function Home() {
       price: '£749',
       oldPrice: '£849',
       rating: '4.6',
-      image:
-        'https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800',
       tag: 'Fast Charge',
     },
   ];
 
-  // Expanded Accessories Data (8 Products with Pictures)
+  // Expanded Accessories Data (100% Reliable Pexels CDN URLs)
   const accessories = [
     {
       id: 1,
@@ -79,8 +76,7 @@ export default function Home() {
       category: 'Audio',
       price: '£49.99',
       rating: '4.8',
-      image:
-        'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/3780104/pexels-photo-3780104.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 2,
@@ -88,8 +84,7 @@ export default function Home() {
       category: 'Charging',
       price: '£29.99',
       rating: '4.9',
-      image:
-        'https://images.unsplash.com/photo-1583863788434-e58a36330cf0?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/4219861/pexels-photo-4219861.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 3,
@@ -97,8 +92,7 @@ export default function Home() {
       category: 'Covers',
       price: '£18.99',
       rating: '4.7',
-      image:
-        'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 4,
@@ -106,8 +100,7 @@ export default function Home() {
       category: 'Wearables',
       price: '£199.99',
       rating: '4.9',
-      image:
-        'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 5,
@@ -115,8 +108,7 @@ export default function Home() {
       category: 'Power',
       price: '£39.99',
       rating: '4.8',
-      image:
-        'https://images.unsplash.com/photo-1609592424109-dd9892f1b177?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/400678/pexels-photo-400678.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 6,
@@ -124,8 +116,7 @@ export default function Home() {
       category: 'Charging',
       price: '£24.99',
       rating: '4.6',
-      image:
-        'https://images.unsplash.com/photo-1622445268465-8438a059810a?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/7742584/pexels-photo-7742584.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 7,
@@ -133,8 +124,7 @@ export default function Home() {
       category: 'Mounts',
       price: '£15.99',
       rating: '4.7',
-      image:
-        'https://images.unsplash.com/photo-1586105251261-72a756497a11?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
     {
       id: 8,
@@ -142,8 +132,7 @@ export default function Home() {
       category: 'Cables',
       price: '£12.99',
       rating: '4.9',
-      image:
-        'https://images.unsplash.com/photo-1585338107529-13afc5f02586?q=80&w=600&auto=format&fit=crop',
+      image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800',
     },
   ];
 
@@ -228,11 +217,13 @@ export default function Home() {
           <div className="relative flex justify-center">
             <div className="relative w-full max-w-sm rounded-[2rem] border border-gray-200 bg-gray-50 p-3 shadow-xl">
               <div className="relative h-80 w-full rounded-[1.5rem] overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop"
+                <img
+                  src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Featured smartphone on dark background"
-                  fill
-                  className="object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = fallbackImage;
+                  }}
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
@@ -296,11 +287,13 @@ export default function Home() {
             >
               <div>
                 <div className="h-48 bg-gray-50 rounded-xl overflow-hidden relative mb-4">
-                  <Image
+                  <img
                     src={phone.image}
                     alt={phone.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-500 ease-out"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = fallbackImage;
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
                   />
                   <span className="absolute top-3 left-3 text-[10px] font-bold bg-white/90 backdrop-blur-sm text-gray-800 px-2.5 py-1 rounded-lg border border-gray-200 shadow-sm uppercase tracking-wider">
                     {phone.tag}
@@ -330,7 +323,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ACCESSORIES SECTION (EXPANDED TO 8 ITEMS) */}
+      {/* ACCESSORIES SECTION */}
       <section id="accessories-section" className="w-full px-4 sm:px-8 lg:px-16 py-16 space-y-9 bg-gray-50/50 border-y border-gray-200">
         <div className="flex justify-between items-end">
           <div>
@@ -356,11 +349,13 @@ export default function Home() {
             >
               <div>
                 <div className="h-44 bg-gray-50 rounded-xl overflow-hidden relative mb-4">
-                  <Image
+                  <img
                     src={acc.image}
                     alt={acc.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition duration-500 ease-out"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = fallbackImage;
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out"
                   />
                   <span className="absolute top-3 right-3 text-xs font-bold text-amber-700 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-lg border border-gray-200 flex items-center gap-1 shadow-sm">
                     <Star className="w-3 h-3 fill-amber-600 text-amber-600" /> {acc.rating}
@@ -382,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT US SECTION (UK FOCUSED) */}
+      {/* ABOUT US SECTION */}
       <section id="about-section" className="w-full px-4 sm:px-8 lg:px-16 py-20 border-b border-gray-200">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -416,11 +411,13 @@ export default function Home() {
           </div>
 
           <div className="relative h-96 lg:h-[28rem] rounded-3xl overflow-hidden border border-gray-200 shadow-lg">
-            <Image
-              src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1000&auto=format&fit=crop"
+            <img
+              src="https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=1000"
               alt="MobixStore UK headquarters and tech lineup"
-              fill
-              className="object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = fallbackImage;
+              }}
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-gray-200">
@@ -431,7 +428,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT US SECTION (UK ADDRESS) */}
+      {/* CONTACT US SECTION */}
       <section id="contact-section" className="w-full px-4 sm:px-8 lg:px-16 py-20 space-y-12 border-b border-gray-200">
         <div className="max-w-2xl space-y-3">
           <p className="text-xs font-black text-[#3E7BFA] tracking-widest uppercase">Get in touch</p>
